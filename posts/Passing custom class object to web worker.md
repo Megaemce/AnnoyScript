@@ -1,8 +1,16 @@
+---
+title: Passing custom class object to web workers
+description: A story of 6h search for missing class method after using web workers
+tags:
+  - Annoyances
+  - TypeScript
+---
+
 <div align="center">
 
 | Annoy level | Time wasted[^0] | Solvable |
-| :-: | :--: | :-: |
-| <img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/> |        6h |  Kinda |
+| :-: | :-: | :-: |
+| <img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/> |       6h        |  Kinda   |
 
 </div>
 
@@ -14,14 +22,14 @@ However, like every sword, they have two edges. One of these edges, [hidden in t
 
 Let's take a look at the simple _planWorker.ts_ code:
 
-```TypeScript
+```ts
 onmessage = function (e: MessageEvent): void {
-    const x = e.data.x as number;
-    const y = e.data.y as number;
+  const x = e.data.x as number;
+  const y = e.data.y as number;
 
-    const layer = new Layer(x, y); // layer type is Layer
+  const layer = new Layer(x, y); // layer type is Layer
 
-    postMessage({ layer: layer });
+  postMessage({ layer: layer });
 };
 ```
 
@@ -29,27 +37,27 @@ The worker gathers the data and then creates a new `Layer` with the given argume
 
 Now, let's examine the `process` method of the `Frame` class that created this web worker in attempt to push the returned object named `layer` into the `layers` property in its class:
 
-```TypeScript
+```ts/9
 export default class Frame {
-    layers: Layer[] = [];
+  layers: Layer[] = [];
 
-    public process({ x, y }: Coords): void {
-        const worker = new Worker(
-            new URL("../utils/planWorker.ts", import.meta.url)
-        );
+  public process({ x, y }: Coords): void {
+    const worker = new Worker(
+      new URL("../utils/planWorker.ts", import.meta.url)
+    );
 
-        worker.onmessage = (e: MessageEvent) => {
-            const layer: Layer = e.data.layer; // layer type is Layer, right?
+    worker.onmessage = (e: MessageEvent) => {
+      const layer: Layer = e.data.layer; // layer type is Layer, right?
 
-            this.layers.push(layer);
-            worker.terminate();
-        };
+      this.layers.push(layer);
+      worker.terminate();
+    };
 
-        worker.postMessage({
-            x: x,
-            y: y,
-        });
-    }
+    worker.postMessage({
+      x: x,
+      y: y,
+    });
+  }
 }
 ```
 
@@ -59,14 +67,13 @@ After many hours of debugging, I discovered [this GitHub question](https://stack
 
 The issue lay within the web worker messaging system.
 
-> [!IMPORTANT]
 > If your custom class contains something more then just properties then _buckle your seatbelt Dorothy, 'cause they are going bye-bye!_[^2]. The structured cloning algorithm used by web worker message system will ignore all of yours:
 >
-> -   property descriptors
-> -   decorators
-> -   setters,
-> -   getters,
-> -   methods
+> - property descriptors
+> - decorators
+> - setters,
+> - getters,
+> - methods
 
 The solution to handle this ✨feature✨ is to either construct new object properties to maintain the current state of the original class or utilize JSON. However, the loss of methods may be unacceptable for some, thus making web workers less than ideal for handling more complex custom class objects[^3].
 
@@ -74,7 +81,7 @@ The solution to handle this ✨feature✨ is to either construct new object prop
 <br>
 
 <div align="center">
-    <img src="AnnoyScript_logo.svg" height="100" width="100"/>
+    <img src="/img/AnnoyScript_logo.svg" height="100" width="100"/>
 </div>
 
 <br>

@@ -1,0 +1,20 @@
+{
+  "title": "AnnoyScript",
+  "url": "https://example.com/",
+  "language": "en",
+  "description": "Blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
+  "feed": {
+    "subtitle": "blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://example.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://example.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Megaemce",
+    "url": "https://github.com"
+  }
+}
