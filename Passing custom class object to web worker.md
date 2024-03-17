@@ -77,7 +77,8 @@ The solution to handle this ✨feature✨ is to either construct new object prop
     </div>
 </span>
 
-<hr>
+<br>
+<br>
 
 [^1]: Web workers can also pass `Array`, `ArrayBuffer`, `Boolean`, `DataView`, `Date`, `Map`, `Number`, Primitive types, except symbol, `RegExp`, `Set`, `String` and `TypedArray`.
 [^2]: Reference to [Matrix movie](https://www.youtube.com/watch?v=0-JJuHpfN5g&pp=ygUSbWF0cml4IHNheSBieWUgYnll).
