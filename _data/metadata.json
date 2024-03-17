@@ -1,17 +1,17 @@
 {
   "title": "AnnoyScript",
-  "url": "https://example.com/",
+  "url": "https://annoyscript.vercel.app/",
   "language": "en",
   "description": "Blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
   "feed": {
-    "subtitle": "blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
+    "subtitle": "Blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https://annoyscript.vercel.app/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://annoyscript.vercel.app/feed/feed.json"
   },
   "author": {
     "name": "Megaemce",
