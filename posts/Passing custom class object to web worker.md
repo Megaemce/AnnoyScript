@@ -1,20 +1,14 @@
 ---
 title: Passing custom class object to web workers
-description: A story of 6h search for missing class method after using web workers
+description: A story of 6 hours search for missing class method after using web workers
 tags:
   - Annoyances
   - TypeScript
 ---
 
-<div align="center">
-
 | Annoy level | Time wasted[^0] | Solvable |
 | :-: | :-: | :-: |
 | <img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/> |       6h        |  Kinda   |
-
-</div>
-
-# Passing custom class object to web workers
 
 [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) are powerful sorcery in the battle against performance demons. When utilizing them, everyone gains a +10🛡️ defense bonus against senior devs and a +5🐎 boost to development stamina.
 

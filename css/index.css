@@ -36,7 +36,6 @@ h5,
 h6,
 header {
   font-family: "Roboto Slab", serif;
-  display: flex;
 }
 
 p:last-child {
@@ -70,6 +69,8 @@ header {
   padding-bottom: 0.25em;
   padding-top: 0.25em;
   margin-bottom: 0.5em;
+  display: flex;
+  justify-content: end;
 }
 header:after {
   content: "";
