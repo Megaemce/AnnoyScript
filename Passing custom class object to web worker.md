@@ -1,12 +1,8 @@
-<span align="center">
-  <div>
-
-|                                                                                                             Annoy level                                                                                                              | Time to undestand | Solvable |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------: | :------: |
-| <img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/> |        8h         |  Kinda   |
-
-</div>
-</span>
+<span align="center"><div>
+| Annoy level | Time to undestand | Solvable |
+| :-: | :--: | :-: |
+| <img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/> |        8h |  Kinda |
+</div></span>
 
 # Passing custom class object to web workers
 
@@ -83,6 +79,6 @@ The solution to handle this ✨feature✨ is to either construct new object prop
 
 <hr>
 
-[^1]: Web workers can pass also other types like `Array`, `ArrayBuffer`, `Boolean`, `DataView`, `Date`, `Map`, `Number`, `Primitive types, except symbol., `RegExp`, `Set`, `String`and`TypedArray`. <br>
+[^1]: Web workers can also pass `Array`, `ArrayBuffer`, `Boolean`, `DataView`, `Date`, `Map`, `Number`, Primitive types, except symbol, `RegExp`, `Set`, `String` and `TypedArray`. <br>
 [^2]: Reference to [Matrix movie](https://www.youtube.com/watch?v=0-JJuHpfN5g&pp=ygUSbWF0cml4IHNheSBieWUgYnll).<br>
 [^3]: Other constrain may be the fact that all objects are copied not shared when used by messages system. Sharing data [is possible](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#passing_data_by_transferring_ownership_transferable_objects), but not with the objects.
