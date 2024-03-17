@@ -72,8 +72,11 @@ The solution to handle this ✨feature✨ is to either construct new object prop
 
 <br>
 <br>
+
 <center>
+
 <img src="AnnoyScript_logo.svg" height="100" width="100"/>
+
 </center>
 
 <hr>
