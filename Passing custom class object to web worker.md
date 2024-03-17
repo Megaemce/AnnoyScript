@@ -1,8 +1,10 @@
-<span align="center"><div>
+<div align="center">
+
 | Annoy level | Time wasted[^0] | Solvable |
 | :-: | :--: | :-: |
 | <img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/><img src="Bolt_off.svg" width="15" height="12"/> |        6h |  Kinda |
-</div></span>
+
+</div>
 
 # Passing custom class object to web workers
 
@@ -71,11 +73,9 @@ The solution to handle this ✨feature✨ is to either construct new object prop
 <br>
 <br>
 
-<span align="center">
-    <div>
-        <img src="AnnoyScript_logo.svg" height="100" width="100"/>
-    </div>
-</span>
+<div align="center">
+    <img src="AnnoyScript_logo.svg" height="100" width="100"/>
+</div>
 
 <br>
 <br>
