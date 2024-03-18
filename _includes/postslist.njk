@@ -15,11 +15,10 @@
           post.url
         }}</code
         >{% endif %}</a
-      >·<time
-        class="postlist-date"
-        datetime="{{ post.date | htmlDateString }}"
-        >{{ post.date | readableDate }}</time
-      >
+      >·
+      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{
+        post.date | readableDate
+      }}</time>
     </div>
     <div class="postlist-desc">
       {{ post.data.description }}
