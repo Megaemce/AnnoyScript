@@ -9,7 +9,7 @@ tags:
 
 | Annoy level | Time wasted[^0] | Solvable |
 | :-: | :-: | :-: |
-| <img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/> |       6h        |  Kinda   |
+| <img src="/img/Bolt.svg" alt="Annoying bolt level 1 on" width="15" height="12"/><img src="/img/Bolt.svg" alt="Annoying bolt level 2 on" width="15" height="12"/><img src="/img/Bolt.svg" alt="Annoying bolt level 3 on" width="15" height="12"/><img src="/img/Bolt_off.svg" alt="Annoying bolt level 4 off" width="15" height="12"/><img src="/img/Bolt_off.svg" alt="Annoying bolt level 5 off" width="15" height="12"/> | 6h | Kinda |
 
 </div>
 
@@ -78,7 +78,7 @@ The solution to handle this ✨feature✨ is to either construct new object prop
 <br>
 
 <div align="center">
-    <img src="/img/AnnoyScript_logo.svg" height="100" width="100"/>
+    <img src="/img/AnnoyScript_logo.svg"  alt="AnnoyScript logo" height="100" width="100"/>
 </div>
 
 <br>
