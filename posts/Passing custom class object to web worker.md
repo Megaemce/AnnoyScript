@@ -10,7 +10,7 @@ tags:
 | :-: | :-: | :-: |
 | <img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/><img src="/img/Bolt_off.svg" width="15" height="12"/> |       6h        |  Kinda   |
 
-[Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) are powerful sorcery in the battle against performance demons. When utilizing them, everyone gains a +10🛡️ defense bonus against senior devs and a +5🐎 boost to development stamina.
+[Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) are powerful sorcery in the battle against performance demons. When utilizing them, everyone gains a +10<sup>🛡️</sup> defense bonus against senior devs and a +5<sup>🐎</sup> boost to development stamina.
 
 However, like every sword, they have two edges. One of these edges, [hidden in the depths of MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), can become a real pain in the ass when attempting to pass something more complex than an ordinary Object[^1].
 

@@ -4,21 +4,19 @@ templateClass: tmpl-post
 ---
 
 <h1>{{ title }}</h1>
-
 <time datetime="{{ page.date | htmlDateString }}">{{
   page.date | readableDate
 }}</time>
+· {{ "text" | timeToRead }} of read
+
+{{ content | safe }}
 {%- for tag in tags | filterTagList -%} {%- set tagUrl %}/tags/{{
   tag | slug
 }}/{% endset -%}
 <a href="{{ tagUrl | url }}" class="post-tag animated-rainbow-hover">{{
   tag
 }}</a>
-{%- endfor %}
-
-{{ content | safe }}
-
-{%- if collections.posts %} {%- set nextPost = collections.posts |
+{%- endfor %} {%- if collections.posts %} {%- set nextPost = collections.posts |
 getNextCollectionItem(page) %} {%- set previousPost = collections.posts |
 getPreviousCollectionItem(page) %} {%- if nextPost or previousPost %}
 <hr />

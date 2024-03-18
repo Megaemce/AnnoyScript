@@ -11,6 +11,8 @@
   --offwhite: #f6f6f6;
   --yellowgreen: #aaff00;
   --lightblue: rgb(0, 225, 255);
+  --mainRed: #cc0014;
+  --mainYellow: #ffd700;
 }
 
 /* Global stylesheet */
@@ -28,6 +30,10 @@ body {
   background-color: var(--almostblack);
 }
 
+h1 {
+  margin-bottom: 6px;
+}
+
 h1,
 h2,
 h3,
@@ -42,11 +48,6 @@ p:last-child {
   margin-bottom: 0;
 }
 p,
-.tmpl-post li,
-img {
-  max-width: 45em;
-}
-p,
 .tmpl-post li {
   line-height: 1.45;
 }
@@ -55,7 +56,7 @@ a[href] {
 }
 
 a[href]:hover {
-  color: var(--yellowgreen);
+  color: var(--mainYellow);
 }
 
 main {
@@ -125,13 +126,18 @@ code {
 }
 
 blockquote {
-  border-left: solid var(--yellowgreen) 0.2em;
-  border-right: solid var(--yellowgreen) 0.2em;
-  border-radius: 1em;
-  margin: 2em 0;
-  padding: 2em;
+  border-left: 0.2em solid transparent; /* Set the border width and make it transparent */
+  border-right: 0.2em solid transparent; /* Set the border width and make it transparent */
+  border-image: linear-gradient(to bottom, var(--mainYellow), var(--mainRed)) 1; /* Apply linear gradient as border image */
+  margin-inline-start: -2em;
+  width: calc(100% + 4em);
+  padding: 1.25em 1.5em;
+  overflow: auto;
+  position: relative;
+  background-color: #322d2f;
+  font-size: 105%;
+
   color: var(--offwhite);
-  font-weight: bold;
 }
 .highlight-line {
   display: block;
@@ -155,7 +161,7 @@ blockquote {
 }
 .highlight-line-active {
   background-color: #444;
-  background-color: hsla(0, 0%, 27%, 0.8);
+  background-color: hsla(41, 91%, 58%, 0.086);
 }
 .highlight-line-add {
   background-color: #45844b;
@@ -301,26 +307,11 @@ a[href].direct-link:visited {
 }
 a[href].direct-link:focus,
 table {
-  border-collapse: collapse;
-  width: 100%;
+  /* border-collapse: collapse; */
+  width: 80%;
   margin-top: 2em;
-  margin-bottom: 4em;
-}
-
-table td {
-  border-bottom: 1px dashed var(--lightgray);
-  padding: 15px 8px;
-}
-
-table tr:hover {
-  background-color: var(--blue);
-}
-
-table th {
-  border-bottom: 3px solid var(--lightgray);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: left;
+  margin-bottom: 2em;
+  margin-left: 10%;
 }
 
 p > code {
@@ -356,12 +347,10 @@ p > code {
 }
 
 ::-moz-selection {
-  background: var(--lightblue);
-  color: var(--darkgray);
+  background: var(--mainRed);
 }
 ::selection {
-  background: var(--lightblue);
-  color: var(--darkgray);
+  background: var(--mainRed);
 }
 
 .tags-container {
@@ -372,8 +361,9 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6em 0 2em;
+  padding: 2em 0 2em;
   font-family: "Roboto Slab", serif;
+  background-color: var(--almostblack);
 }
 
 .footer-text {
@@ -432,22 +422,10 @@ footer {
 .animated-rainbow-hover:hover,
 .animated-rainbow-hover:focus {
   color: var(--white);
-  background: linear-gradient(
-    238deg,
-    red,
-    #ff8000,
-    #ff0,
-    #80ff00,
-    #0f0,
-    #00ff80,
-    #0080ff,
-    #00f,
-    #8000ff,
-    #ff0080
-  );
-  background-size: 1200% 1200%;
-  -webkit-animation: rainbow 16s ease infinite;
-  -z-animation: rainbow 16s ease infinite;
-  -o-animation: rainbow 16s ease infinite;
-  animation: rainbow 16s ease infinite;
+  background: linear-gradient(238deg, var(--mainRed), var(--mainYellow));
+  background-size: 600% 600%;
+  -webkit-animation: rainbow 2s ease infinite;
+  -z-animation: rainbow 2s ease infinite;
+  -o-animation: rainbow 2s ease infinite;
+  animation: rainbow 2s ease infinite;
 }

@@ -3,11 +3,16 @@ const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const pluginTimeToRead = require("eleventy-plugin-time-to-read");
+
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItFootnote = require("markdown-it-footnote");
+const markdownItAbbr = require("markdown-it-abbr");
 
 module.exports = function (eleventyConfig) {
   // Add plugins
+  eleventyConfig.addPlugin(pluginTimeToRead);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -69,7 +74,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
 
   // Customize Markdown library and settings:
-  let markdownItFootnote = require("markdown-it-footnote");
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
@@ -84,7 +88,8 @@ module.exports = function (eleventyConfig) {
       }),
       slugify: eleventyConfig.getFilter("slug"),
     })
-    .use(markdownItFootnote);
+    .use(markdownItFootnote)
+    .use(markdownItAbbr);
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 
