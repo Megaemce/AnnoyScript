@@ -16,10 +16,15 @@
         }}</code
         >{% endif %}</a
       >
+      ·
+      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{
+        post.date | readableDate
+      }}</time>
     </div>
-    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{
-      post.date | readableDate
-    }}</time>
+    <div class="postlist-desc">
+      {{ post.data.description }}
+    </div>
+
     {% for tag in post.data.tags | filterTagList %} {% set tagUrl %}/tags/{{
       tag | slug
     }}/{% endset %}
@@ -27,9 +32,6 @@
       tag
     }}</a>
     {% endfor %}
-    <div>
-      {{ post.data.description }}
-    </div>
   </li>
   {% endfor %}
 </ol>
