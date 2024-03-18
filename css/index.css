@@ -79,6 +79,24 @@ header:after {
   clear: both;
 }
 
+/* For WebKit/Blink browsers */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width as needed */
+  background-color: #222; /* Set the background color to dark */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #666; /* Set the color of the scroll thumb */
+}
+
+/* For Firefox */
+/* You may need to use !important to override Firefox's default styles */
+/* To enable custom scrollbars in Firefox, you may also need to set the "layout.css.scrollbar-width.enabled" preference to "true" in about:config */
+/* Note: This method doesn't support styling the scroll thumb separately */
+* {
+  scrollbar-color: #666 #222; /* Set the color of the scrollbar (thumb and track) */
+}
+
 .hero {
   padding: 2em;
   background: rgb(2, 0, 36);
