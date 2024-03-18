@@ -381,6 +381,14 @@ p > code {
   margin-bottom: 5em;
 }
 
+.footnotes-list {
+  padding-top: 1.5em;
+}
+
+.footnote-item {
+  padding-bottom: 1em;
+}
+
 footer {
   display: flex;
   flex-direction: column;
