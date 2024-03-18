@@ -329,10 +329,13 @@ a[href].direct-link:visited {
 a[href].direct-link:focus,
 table {
   /* border-collapse: collapse; */
-  width: 80%;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  margin-left: 10%;
+  /* width: 80%; */
+  padding: 1em 0;
+}
+
+th,
+td {
+  padding: 0 2em;
 }
 
 p > code {
