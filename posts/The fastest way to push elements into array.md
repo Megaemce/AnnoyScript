@@ -156,7 +156,7 @@ So next time when you set yourself up for a good ninja push-up training, remembe
 <br>
 
 <div align="center">
-    <img src="../img/AnnoyScript_logo.svg"  alt="AnnoyScript logo" height="100" width="100"/>
+    <img src="/img/AnnoyScript_logo.svg"  alt="AnnoyScript logo" height="100" width="100"/>
 </div>
 
 <br>
