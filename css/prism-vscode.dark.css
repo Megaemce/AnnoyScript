@@ -3,12 +3,12 @@
  *    monospace font by default.
  */
 pre {
-  margin: 0;
+  margin-bottom: 2.5em;
   padding: 1.25em 1.5em;
   overflow: auto;
   position: relative;
   /* background-color: #fffafd; */
-  background-color: #322d2f;
+  background-color: #322d2f7e;
   font-family: inherit;
   color: #f8f8f2;
 }
