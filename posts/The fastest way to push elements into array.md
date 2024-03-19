@@ -1,6 +1,6 @@
 ---
 title: The fastest way to work with arrays
-description: How to make 500 JavaScript push-ups without making CPU wet
+description: How to make 10000000 JavaScript push-ups without making CPU wet
 tags:
   - Ninja tricks
   - JavaScript
@@ -19,7 +19,7 @@ The go-to approach by laydev would be something like this:
 ```js
 const workout = [];
 
-for (let i; i < 500; i++) {
+for (let i; i < 10000000; i++) {
   workout[i].push("push-up");
 }
 ```
@@ -34,24 +34,24 @@ Should we start our workout with an empty mind or filled with memories of the ti
 
 ```js
 const workout_empty = [];
-const workout_slot_ready = ["slot",...,"slot"] // 500 slots
+const workout_slot_ready = ["slot",...,"slot"] // 10000000 slots
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 10000000; i++) {
   workout_empty[i] = "push-up";
 }
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 10000000; i++) {
   workout_slot_ready[i] = "push-up";
 }
 ```
 The rule of thumb is that pushing that many elements to a completely empty array will be very slow. JavaScript generally prefers when the array is already populated, but let's actually test it.
 
-The results exceed expectations. Pushing into the `workout_slot_ready` array is more than **3x faster**!
+[The results](https://jsbench.me/jqltyhoctl/1) exceed expectations. Pushing into the `workout_slot_ready` array is more than **23x faster**!
  <div align="center">
 
  | Slot_ready | Empty |
  | :-: | :-: |
- | 🏆 2.4M ops/s | 754K ops/s |
+ | 🏆 93 ops/s | 4.1 ops/s |
  </div>
 
 ## Quickest way to create filled array
@@ -63,35 +63,35 @@ So now we know that it's better to work with filled arrays, but how to create th
 - new kid on the block but with a cool hairstyle - [`new Array().fill()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill),
 - the guy who wears underpants on the outside - [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
-Let's ask them to do 500 push-ups and see who will win in terms of performance.
+Let's ask them to do 10 000 000 push-ups and see who will win in terms of performance.
 
 ```js
 // creating an empty array and filling it ol' style!
 const workout = [];
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 10000000; i++) {
   workout[i] = "slot";
 }
 
 // creating an empty array and filling it up using a push
 workout = [];
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 10000000; i++) {
   workout.push("slot");
 }
 
 // using Array's fill method to fill the array
-workout = new Array(500).fill("slot", 0, 500);
+workout = new Array(10000000).fill("slot", 0, 10000000);
 
 // using Array's static from method with an object literal
-workout = Array.from({ length: 500 }, () => "slot");
+workout = Array.from({ length: 10000000 }, () => "slot");
 ```
 
-The results: `new Array().fill` is **1.2x faster** than `push` and then **19.5x faster** than `Array.from()` creep!
+[The results](https://jsbench.me/jqltyhoctl/2): `new Array().fill` is **4.8x faster** than `push` and then almost **14x faster** than `Array.from()` creep!
 
  <div align="center">
 
  | new Array().fill |   push()   | Array\[i\] | Array.from() |
  | :-----------------: | :--------: | :--------: | :----------: |
- | 🏆 546K ops/s | 454K ops/s | 374K ops/s |  28k ops/s   |
+ | 🏆 18 ops/s | 3.7 ops/s | 3.5 ops/s |  1.3 ops/s   |
  </div>
 
 ## Quickest way to insert element into array
@@ -102,20 +102,20 @@ Now let's push some push-ups into the workout! By doing so, we need to approach 
 
 ```js
 // imperative approach
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 10000000; i++) {
   workout[i] = "push-up";
 }
 
 // declarative approach
-workout.forEach((_, i) => (workout[i] = "push-up"));
+workout.forEach((_, i) => workout[i] = "push-up");
 ```
 
- This might cause some declarative devs to cry a little in the corner, but face the truth! Your fighting techniques are lame-o. Imperative 4 life with performance **2.2x faster** than declarative.
+ This might cause some declarative devs to cry a little in the corner, but [face the truth](https://jsbench.me/jqltyhoctl/3)! Your fighting techniques are lame-o. Imperative 4 life with performance **12.8x faster** than declarative.
  <div align="center">
 
  | for | forEach|
  | :-: | :-:|
- | 🏆 2.2M ops/s | 1M ops/s |
+ | 🏆 86 ops/s | 6.7 ops/s |
  </div>
 
 ## Final battle
@@ -123,7 +123,7 @@ workout.forEach((_, i) => (workout[i] = "push-up"));
 Let's lay the groundwork for one final performance battle: the laydev technique from the beginning of our training and a ninja-style crafted method, versus a whole bunch of push-ups 💪🏻!
 
 ```js
-// 👴🏻 laydev style
+// 👨🏻‍🦼 laydev style
 const workout = [];
 
 for (let i = 0; i < 10000000; i++) {
@@ -138,13 +138,13 @@ for (let i = 0; i < 10000000; i++) {
 }
 ```
 
- The results are just **awesome**! We are almost **5.5x faster**!
+[The results](https://jsbench.me/jqltyhoctl/4) are just 🎉**awesome**🎉! We are **4.2x faster**!
 
  <div align="center">
 
  | Ninja styla | Lay style |
  | :-: | :-: |
- | 🏆 19 ops/s | 3.5 ops/s |
+ | 🏆 17 ops/s | 4 ops/s |
  </div>
 
 
