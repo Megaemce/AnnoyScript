@@ -45,13 +45,14 @@ for (let i = 0; i < 500; i++) {
 }
 ```
 The rule of thumb is that pushing that many elements to a completely empty array will be very slow. JavaScript generally prefers when the array is already populated, but let's actually test it.
-> The results exceed expectations. Pushing into the `workout_slot_ready` array is more than **3x faster**!
-> <div align="center">
->
-> | Slot_ready | Empty |
-> | :-: | :-: |
-> | 🏆 2.4M ops/s | 754K ops/s |
-> </div>
+
+The results exceed expectations. Pushing into the `workout_slot_ready` array is more than **3x faster**!
+ <div align="center">
+
+ | Slot_ready | Empty |
+ | :-: | :-: |
+ | 🏆 2.4M ops/s | 754K ops/s |
+ </div>
 
 ## Quickest way to create filled array
 
@@ -59,8 +60,10 @@ So now we know that it's better to work with filled arrays, but how to create th
 
 - old-style and cheerful Grandpa - `Array[i]`,
 - well-known and widely respected - [`push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) method,
-- new kid on the block but with a cool hairstyle - [`new Array()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Array#array_constructor_with_a_single_parameter),
+- new kid on the block but with a cool hairstyle - [`new Array().fill()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill),
 - the guy who wears underpants on the outside - [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+
+Let's ask them to do 500 push-ups and see who will win in terms of performance.
 
 ```js
 // creating an empty array and filling it ol' style!
@@ -82,16 +85,14 @@ workout = new Array(500).fill("slot", 0, 500);
 workout = Array.from({ length: 500 }, () => "slot");
 ```
 
-Let's ask them to do 500 push-ups and see who will win in terms of performance.
+The results: `new Array().fill` is **1.2x faster** than `push` and then **19.5x faster** than `Array.from()` creep!
 
-> The results: `new Array().fill` is **1.2x faster** than `push` and then **19.5x faster** than `Array.from()` creep!
->
-> <div align="center">
->
-> | new Array().fill |   push()   | Array\[i\] | Array.from() |
-> | :-----------------: | :--------: | :--------: | :----------: |
-> | 🏆 546K ops/s | 454K ops/s | 374K ops/s |  28k ops/s   |
-> <div>
+ <div align="center">
+
+ | new Array().fill |   push()   | Array\[i\] | Array.from() |
+ | :-----------------: | :--------: | :--------: | :----------: |
+ | 🏆 546K ops/s | 454K ops/s | 374K ops/s |  28k ops/s   |
+ </div>
 
 ## Quickest way to insert element into array
 
@@ -109,13 +110,13 @@ for (let i = 0; i < 500; i++) {
 workout.forEach((_, i) => (workout[i] = "push-up"));
 ```
 
-> This might cause some declarative devs to cry a little in the corner, but face the truth! Your fighting techniques are lame-o. Imperative 4 life with performance **2.2x faster** than declarative.
-> <div align="center">
->
-> | for | forEach|
-> | :-: | :-:|
-> | 🏆 2.2M ops/s | 1M ops/s |
-> </div>
+ This might cause some declarative devs to cry a little in the corner, but face the truth! Your fighting techniques are lame-o. Imperative 4 life with performance **2.2x faster** than declarative.
+ <div align="center">
+
+ | for | forEach|
+ | :-: | :-:|
+ | 🏆 2.2M ops/s | 1M ops/s |
+ </div>
 
 ## Final battle
 
