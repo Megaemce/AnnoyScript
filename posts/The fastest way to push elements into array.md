@@ -138,15 +138,16 @@ for (let i = 0; i < 10000000; i++) {
 }
 ```
 
-> The results are just **awesome**! We are almost **5.5x faster**!
->
-> <div align="center">
->
-> | Ninja styla | Lay style |
-> | :-: | :-: |
-> | 🏆 19 ops/s | 3.5 ops/s |
-> </div>
->
+ The results are just **awesome**! We are almost **5.5x faster**!
+
+ <div align="center">
+
+ | Ninja styla | Lay style |
+ | :-: | :-: |
+ | 🏆 19 ops/s | 3.5 ops/s |
+ </div>
+
+
 > So next time when we set yourself up for a good ninja push-up training, remember the warm-up our workout with some `fill` method and use good ol' `for` loop.
 
 
