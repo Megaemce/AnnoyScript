@@ -51,7 +51,7 @@ pre code {
 }
 
 :not(pre):not(a) > code {
-  background-color: #322d2f;
+  background-color: #6c4d59;
   color: #f8f8f2;
 
   border-radius: 0.25em;
