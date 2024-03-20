@@ -9,7 +9,7 @@ tags:
 
 | Annoy level | Time wasted[^0] | Solvable |
 | :-: | :-: | :-: |
-| <img src="/img/Bolt.svg" alt="Annoying bolt level 1 on" width="15" height="12"/><img src="/img/Bolt.svg" alt="Annoying bolt level 2 on" width="15" height="12"/><img src="/img/Bolt.svg" alt="Annoying bolt level 3 on" width="15" height="12"/><img src="/img/Bolt_off.svg" alt="Annoying bolt level 4 off" width="15" height="12"/><img src="/img/Bolt_off.svg" alt="Annoying bolt level 5 off" width="15" height="12"/> | 6h | Kinda |
+| <img src="/img/Bolt.svg" alt="Annoying bolt level 1 on" width="15" height="12"/><img src="/img/Bolt.svg" alt="Annoying bolt level 2 on" width="15" height="12"/><img src="/img/Bolt.svg" alt="Annoying bolt level 3 on" width="15" height="12"/><img src="/img/Bolt.svg" class="off" alt="Annoying bolt level 4 off" width="15" height="12"/><img src="/img/Bolt.svg" class="off" alt="Annoying bolt level 5 off" width="15" height="12"/> | 6h | Kinda |
 
 </div>
 
