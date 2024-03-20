@@ -20,7 +20,7 @@ The go-to approach by laydev would be something like this:
 const workout = [];
 
 for (let i; i < 10000000; i++) {
-  workout[i].push("push-up");
+  workout.push("push-up");
 }
 ```
 
