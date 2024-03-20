@@ -19,7 +19,13 @@ templateClass: tmpl-post
 {%- endfor %} {%- if collections.posts %} {%- set nextPost = collections.posts |
 getNextCollectionItem(page) %} {%- set previousPost = collections.posts |
 getPreviousCollectionItem(page) %} {%- if nextPost or previousPost %}
-<hr />
+<div align="center">
+  <button id="clickButton" class="bolts" data-button-id="{{ title }}">
+    <span id="clickCount"></span>
+    <img src="../../img/Bolt.svg" alt="Bolt" height="56" width="24" />
+  </button>
+</div>
+
 <div class="post-footer">
   <div class="prev-post">
     {%- if previousPost %}&#9194;
@@ -38,3 +44,26 @@ getPreviousCollectionItem(page) %} {%- if nextPost or previousPost %}
   </div>
 </div>
 {%- endif %} {%- endif %}
+
+<script>
+  const clickButton = document.getElementById("clickButton");
+  const clickCount = document.getElementById("clickCount");
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const buttonId = clickButton.dataset.buttonId;
+    const response = await fetch(`/click/${buttonId}`, { method: "GET" });
+    const data = await response.json();
+
+    clickCount.textContent = data.totalClicks;
+
+    clickButton.addEventListener("click", async () => {
+      const buttonId = clickButton.dataset.buttonId;
+      const response = await fetch(`/click/${buttonId}`, {
+        method: "POST",
+      });
+      const data = await response.json();
+
+      clickCount.textContent = data.totalClicks;
+    });
+  });
+</script>
