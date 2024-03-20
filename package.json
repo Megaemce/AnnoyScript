@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "Blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy --quiet",
     "watch": "eleventy --watch",
     "serve": "node server.js",
-    "start": "yarn run build && npm run serve",
+    "start": "yarn run build && yarn run serve",
     "debug": "DEBUG=* eleventy"
   },
   "license": "MIT",

@@ -74,15 +74,7 @@ The issue lay within the web worker messaging system.
 
 The solution to handle this ✨feature✨ is to either construct new object properties to maintain the current state of the original class or utilize JSON. However, the loss of methods may be unacceptable for some, thus making web workers less than ideal for handling more complex custom class objects[^3].
 
-<br>
-<br>
-
-<div align="center">
-    <img src="/img/AnnoyScript_logo.svg"  alt="AnnoyScript logo" height="100" width="100"/>
-</div>
-
-<br>
-<br>
+{% include "counter.njk" %}
 
 [^0]: I learn something for sure, but you know... I could spend that time more productive, like watching Adventure Time instead.
 [^1]: Web workers can also pass `Array`, `ArrayBuffer`, `Boolean`, `DataView`, `Date`, `Map`, `Number`, Primitive types, except symbol, `RegExp`, `Set`, `String` and `TypedArray`.
