@@ -139,8 +139,18 @@ pre {
   color: var(--darkgray);
   border-radius: 5px;
 }
-code {
-  word-break: break-all;
+
+abbr {
+  position: relative;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+abbr:hover {
+  color: var(--mainYellow);
 }
 
 blockquote {
@@ -336,12 +346,6 @@ table {
 th,
 td {
   padding: 0 2em;
-}
-
-p > code {
-  color: #3f3f3f;
-  background-color: #e9e9e9;
-  padding: 0 5px;
 }
 
 .post-footer {

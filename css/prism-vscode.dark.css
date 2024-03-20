@@ -57,6 +57,7 @@ pre code {
   border-radius: 0.25em;
   padding: 0 0.4em;
   font-size: 80%;
+  word-break: keep-all;
 }
 
 .namespace {
