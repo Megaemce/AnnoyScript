@@ -1,14 +1,14 @@
 ---
 title: The fastest way to work with arrays
-description: How to make 10000000 JavaScript push-ups without making CPU wet
+description: How to make 10 000 000 JavaScript push-ups without making CPU wet
 tags:
   - Ninja tricks
   - JavaScript
 ---
 
-Although my grandma liked to spend time feeding me with sweets and telling lies about the fact that _all methods in V8 are equal_ in terms of performance, I knew that she was secretly hiding the truth of real JavaScript ninja techniques<sup>🥷🏻</sup>.
+Although my grandma liked to spend time feeding me sweets and telling lies, such as the claim that all methods in V8 are equal in performance, I knew that she was secretly hiding the truth of real JavaScript ninja techniques.<sup>🥷🏻</sup>.
 
-Even though the cake was delicious, it's important to know that _a true Saiyan always sprinkles when he tinkles_[^1], and the real ninja JavaScript always assumes that V8's mysterious engine was written by [triple agents](https://en.wikipedia.org/wiki/Double_agent#Triple_agent) who made their stuff so confusing just as a test of our intellectual superiority and endurance before we can truly enter the Ninja realm.
+Even though the cake was delicious, it's important to know that _a true Saiyan always sprinkles when he tinkles_[^1], and the real ninja always assumes that JavaScript's mysterious engine was written by [triple agents](https://en.wikipedia.org/wiki/Double_agent#Triple_agent) who made their stuff so confusing just as a test of our intellectual superiority and endurance before we can truly enter the Ninja realm.
 
 ## Seting up the task
 
@@ -24,13 +24,16 @@ for (let i; i < 10000000; i++) {
 }
 ```
 
-Looks okish, but it's actually a big slowpoke<sub>🐌</sub>! Let's find a better, totally ninja-style, blazingly fast secret technique!
+Looks okay, but it's actually quite slow<sub>🐌</sub>! And don't even try to tell me that "everything will be smoothed out by a V8 engine that will magically turn this lazy-ass code into magic". We are not in the GCC town; it's the JavaScript ghetto! Things just don't get smoothed out here so easily.
 
-But first, we need to reveal the first truth about JavaScript's arrays.
+Let's find a better, totally ninja-style, blazingly fast secret technique. But first, we need to reveal the first truth about JavaScript's arrays.
 
-## Empty array vs already filled array
+*[GCC]: GNU Compiler Collection
+*[V8]: JavaScript and WebAssembly engine developed by Google for Chrome browser
 
-Should we start our workout with an empty mind or filled with memories of the times we failed as a developer? Or, to stay on track with this topic, should we just create an empty workout array, or is it better to have it filled with empty slots ready to get sweaty💦?
+## Empty array vs prepared array
+
+Should we start our workout with an empty mind or filled with memories of the times we failed as a developer? Or, to stay on track with the main quest, should we just create an empty workout array, or is it better to have it filled with empty slots ready to get sweaty💦?
 
 ```js
 const workout_empty = [];
@@ -110,7 +113,7 @@ for (let i = 0; i < 10000000; i++) {
 workout.forEach((_, i) => workout[i] = "push-up");
 ```
 
- This might cause some declarative devs to cry a little in the corner, but [face the truth](https://jsbench.me/jqltyhoctl/3)! Your fighting techniques are lame-o. Imperative 4 life with performance **12.8x faster** than declarative.
+ This might cause some declarative devs to cry a little in the corner, but [face the truth](https://jsbench.me/jqltyhoctl/3)! Your fighting techniques are lame-o. Imperative 4 life, with performance **12.8x faster** than declarative.
  <div align="center">
 
  | for | forEach|
@@ -123,7 +126,7 @@ workout.forEach((_, i) => workout[i] = "push-up");
 Let's lay the groundwork for one final performance battle: the laydev technique from the beginning of our training and a ninja-style crafted method, versus a whole bunch of push-ups 💪🏻!
 
 ```js
-// 👨🏻‍🦼 laydev style
+// 🦽 laydev style
 const workout = [];
 
 for (let i = 0; i < 10000000; i++) {
@@ -138,7 +141,7 @@ for (let i = 0; i < 10000000; i++) {
 }
 ```
 
-[The results](https://jsbench.me/jqltyhoctl/4) are just 🎉**awesome**🎉! We are **4.2x faster**!
+[The results](https://jsbench.me/jqltyhoctl/4) are just 🎉awesome🎉! We are **4.2x faster**!
 
  <div align="center">
 
