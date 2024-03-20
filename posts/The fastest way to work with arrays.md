@@ -97,7 +97,7 @@ workout = Array.from({ length: 10000000 }, () => "slot");
  | 🏆 18 ops/s | 3.7 ops/s | 3.5 ops/s |  1.3 ops/s   |
  </div>
 
-## Quickest way to insert element into array
+## Quickest way to insert elements into array
 
 So let's assume that our `workout` array is already blazingly-fast-ninja-style-filled<sup>🥷🏻⚡</sup>.
 
@@ -121,7 +121,7 @@ workout.forEach((_, i) => workout[i] = "push-up");
  | 🏆 86 ops/s | 6.7 ops/s |
  </div>
 
-## Final battle
+## Final comparison
 
 Let's lay the groundwork for one final performance battle: the laydev technique from the beginning of our training and a ninja-style crafted method, versus a whole bunch of push-ups 💪🏻!
 
