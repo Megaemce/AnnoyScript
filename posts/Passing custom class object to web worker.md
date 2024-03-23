@@ -58,7 +58,9 @@ export default class Frame {
 }
 ```
 
-How _pleasantly_ surprising it was to discover that suddenly methods working on the `layers` array couldn't access some of the methods from the `Layer` class.
+How _pleasantly_ surprising it was to discover that suddenly methods working on the `layers` array couldn't access some of the methods from the `Layer` class. Well I think that means that it's...
+
+<div align="center"><img src="/img/AnnoyingTime.png" alt="Annoying time logo" class="subtextImg"/></div>
 
 After many hours of debugging, I discovered [this GitHub question](https://stackoverflow.com/questions/7704323/passing-objects-to-a-web-worker) and realized that, unlike every other time, the fault was not on my side.
 

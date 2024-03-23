@@ -203,6 +203,11 @@ button.bolts:hover {
   background-color: #80000d;
 }
 
+img.subtextImg {
+  width: -webkit-fill-available;
+  max-width: 400px;
+}
+
 img.off {
   filter: grayscale(1);
 }
