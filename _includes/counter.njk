@@ -17,16 +17,22 @@
 
   document.addEventListener("DOMContentLoaded", async () => {
     const buttonId = clickButton.dataset.buttonId;
-    const response = await fetch(`/click/${buttonId}`, { method: "GET" });
+    const response = await fetch(
+      `https://annoy-script-node-serverless.vercel.app/click/${buttonId}`,
+      { method: "GET" }
+    );
     const data = await response.json();
 
     clickCount.textContent = data.totalClicks;
 
     clickButton.addEventListener("click", async () => {
       const buttonId = clickButton.dataset.buttonId;
-      const response = await fetch(`/click/${buttonId}`, {
-        method: "POST",
-      });
+      const response = await fetch(
+        `https://annoy-script-node-serverless.vercel.app/click/${buttonId}`,
+        {
+          method: "POST",
+        }
+      );
       const data = await response.json();
 
       clickCount.textContent = data.totalClicks;
