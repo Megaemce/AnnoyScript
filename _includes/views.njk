@@ -1,0 +1,16 @@
+<p id="views" class="views" data-postTitle="{{ title }}"></p>
+
+<script>
+  const viewsP = document.getElementById("views");
+  const postTitle = viewsP.dataset.postTitle;
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const response = await fetch(
+      `https://annoy-script-node-serverless.vercel.app/${postTitle}/views`,
+      { method: "GET" }
+    );
+    const data = await response.json();
+
+    viewsP.textContent = data.views;
+  });
+</script>

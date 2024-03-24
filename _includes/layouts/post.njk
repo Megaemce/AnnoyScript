@@ -7,7 +7,7 @@ templateClass: tmpl-post
 <time datetime="{{ page.date | htmlDateString }}">{{
   page.date | readableDate
 }}</time>
-· {{ "text" | timeToRead }} of read
+· {{ "text" | timeToRead }} of read · {% include "views.njk" %} views
 
 {{ content | safe }}
 {%- for tag in tags | filterTagList -%} {%- set tagUrl %}/tags/{{
