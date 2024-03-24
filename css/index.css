@@ -84,6 +84,12 @@ header .logoTitle {
   align-items: center;
 }
 
+@media (max-width: 600px) {
+  .home {
+    display: none;
+  }
+}
+
 /* Header */
 header .home {
   padding: 0 1rem;
