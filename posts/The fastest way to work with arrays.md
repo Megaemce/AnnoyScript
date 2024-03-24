@@ -25,7 +25,7 @@ for (let i; i < 10000000; i++) {
 }
 ```
 
-Looks okay, but it's actually quite slow<sub>🐌</sub>! And don't even try to tell me that "everything will be smoothed out by a V8 engine that will magically turn this lazy-ass code into magic". We are not in the GCC town; it's the JavaScript ghetto! Things just don't get smoothed out here so easily.
+Looks okay, but it's actually quite slow<sub>🐌</sub>! And don't even try to tell me that "everything will be smoothed out by a V8 engine that will magically turn this lazy-ass code into performance beast". We are not in the GCC town; it's the JavaScript ghetto! Things just don't get smoothed out here so easily.
 
 Let's find a better, totally ninja-style, blazingly fast secret technique. But first, we need to reveal the first truth about JavaScript's arrays.
 
@@ -142,7 +142,7 @@ for (let i = 0; i < 10000000; i++) {
 }
 ```
 
-[The results](https://jsbench.me/jqltyhoctl/4) are just 🎉awesome🎉! We are **4.2x faster**!
+[The results](https://jsbench.me/jqltyhoctl/4) are just awesome - we are **4.2x faster**! 🎉
 
  <div align="center">
 
