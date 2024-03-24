@@ -84,15 +84,6 @@ header .logoTitle {
   align-items: center;
 }
 
-@media (max-width: 600px) {
-  .home {
-    display: none;
-  }
-  .logo {
-    margin-left: 1em;
-  }
-}
-
 /* Header */
 header .home {
   padding: 0 1rem;
@@ -187,8 +178,6 @@ blockquote {
   margin-inline-start: -2em;
   width: calc(100% + 4em);
   padding: 1.25em 1.5em;
-  overflow: auto;
-  position: relative;
   background-color: #322d2f;
   font-size: 105%;
 
@@ -522,4 +511,18 @@ footer {
   -z-animation: rainbow 2s ease infinite;
   -o-animation: rainbow 2s ease infinite;
   animation: rainbow 2s ease infinite;
+}
+
+@media (max-width: 600px) {
+  .home {
+    display: none;
+  }
+  .logo {
+    margin-left: 1em;
+  }
+  blockquote {
+    margin: 0;
+    margin-inline-start: 0;
+    width: -webkit-fill-available;
+  }
 }
