@@ -2,8 +2,8 @@
 <br />
 
 <div align="center">
-  <button id="clickButton" class="bolts" data-button-id="{{ title }}">
-    <span id="clickCount"></span>
+  <button id="likeButton" class="bolts" data-button-id="{{ title }}">
+    <span id="likesCount"></span>
     <img src="../../img/Bolt.svg" alt="Bolt" height="56" width="24" />
   </button>
 </div>
@@ -12,30 +12,29 @@
 <br />
 
 <script>
-  const clickButton = document.getElementById("clickButton");
-  const clickCount = document.getElementById("clickCount");
+  const likeButton = document.getElementById("likeButton");
+  const likesCount = document.getElementById("likesCount");
+  const postTitle = likeButton.dataset.buttonId;
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const buttonId = clickButton.dataset.buttonId;
     const response = await fetch(
-      `https://annoy-script-node-serverless.vercel.app/click/${buttonId}`,
+      `https://annoy-script-node-serverless.vercel.app/${postTitle}`,
       { method: "GET" }
     );
     const data = await response.json();
 
-    clickCount.textContent = data.totalClicks;
+    likesCount.textContent = data.likes;
 
-    clickButton.addEventListener("click", async () => {
-      const buttonId = clickButton.dataset.buttonId;
+    likeButton.addEventListener("click", async () => {
       const response = await fetch(
-        `https://annoy-script-node-serverless.vercel.app/click/${buttonId}`,
+        `https://annoy-script-node-serverless.vercel.app/${postTitle}/likes`,
         {
-          method: "POST",
+          method: "GET",
         }
       );
       const data = await response.json();
 
-      clickCount.textContent = data.totalClicks;
+      likesCount.textContent = data.likes;
     });
   });
 </script>
