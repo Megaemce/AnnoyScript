@@ -25,7 +25,7 @@ for (let i; i < 10000000; i++) {
 }
 ```
 
-Looks okay, but it's actually quite slow<sub>🐌</sub>! And don't even try to tell me that "everything will be fixed by a V8 engine that will magically turn this lazy-ass code into performance beast". We are not in the GCC town; it's the JavaScript ghetto! Things just don't get smoothed out here so easily.
+Looks okay, but it's actually quite slow. And don't even try to tell me that "everything will be fixed by a V8 engine that will magically turn this lazy-ass code into performance beast". We are not in the GCC town; it's the JavaScript ghetto! Things just don't get smoothed out here so easily.
 
 Let's find a better, totally ninja-style, blazingly fast secret technique. But first, we need to reveal the first truth about JavaScript's arrays.
 
@@ -127,7 +127,7 @@ workout.forEach((_, i) => workout[i] = "push-up");
 Let's lay the groundwork for one final performance battle: the laydev technique from the beginning of our training and a ninja-style crafted method, versus a whole bunch of push-ups 💪🏻!
 
 ```js
-// 🦽 laydev style
+// 🐌 laydev style
 const workout = [];
 
 for (let i = 0; i < 10000000; i++) {
@@ -142,7 +142,7 @@ for (let i = 0; i < 10000000; i++) {
 }
 ```
 
-[The results](https://jsbench.me/jqltyhoctl/4) are just awesome - we are **4.2x faster**! 🎉
+[The results](https://jsbench.me/jqltyhoctl/4) are just awesome - we are **4.2x faster**[^2]! 🎉
 
  <div align="center">
 
@@ -157,3 +157,4 @@ for (let i = 0; i < 10000000; i++) {
 {% include "likeButton.njk" %}
 
 [^1]: RIP in peace [Akira Toriyama](https://www.youtube.com/watch?v=7pSmhZFbCy0).
+[^2]: It's worth mentioning that those results are measured with Chrome's V8 engine. Firefox's JavaScript engine - SpiderMonkey - actually makes ninja style slower than laydev.
