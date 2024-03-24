@@ -51,6 +51,10 @@ p,
 .tmpl-post li {
   line-height: 1.45;
 }
+
+p.views {
+  display: inline;
+}
 a[href] {
   color: var(--white);
 }
