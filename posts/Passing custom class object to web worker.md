@@ -59,7 +59,7 @@ export default class Frame {
 }
 ```
 
-How _pleasantly_ surprising it was to discover that suddenly methods working on the `layers` array couldn't access some of the methods from the `Layer` class. Well I think that means that it's...
+How _pleasantly_ surprising it was to discover that suddenly methods working on the `layers` array couldn't access some of the methods from the `Layer` class. Well I think that means it's...
 
 <div align="center"><img src="/img/AnnoyingTime.png" alt="Annoying time logo" class="subtextImg"/></div>
 
