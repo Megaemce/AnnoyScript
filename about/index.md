@@ -15,5 +15,5 @@ My personal blog about the issues, annoyances, hard-to-grasp concepts, and tips 
 </div>
 <br>
 
-All the texts, logos and funny images are created by me. 
+All posts and funny images are created by me. 
 You can say hello on [GitHub](https://github.com/Megaemce).
