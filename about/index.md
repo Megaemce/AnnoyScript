@@ -7,8 +7,13 @@ eleventyNavigation:
   order: 3
 ---
 
-My personal blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript. Have fun!<sup>⚡</sup>
+My personal blog about the issues, annoyances, hard-to-grasp concepts, and tips I've encountered while working with JavaScript and TypeScript. Have fun!<sup>⚡</sup> 
+
 <br>
 <div align="center">
         <img src="/img/AnnoyScript_logo.svg"  alt="AnnoyScript logo" height="150" width="150"/>
 </div>
+<br>
+
+All the texts, logos and funny images are created by me. 
+You can say hello on [GitHub](https://github.com/Megaemce).
