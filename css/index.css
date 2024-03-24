@@ -88,6 +88,9 @@ header .logoTitle {
   .home {
     display: none;
   }
+  .logo {
+    margin-left: 1em;
+  }
 }
 
 /* Header */
