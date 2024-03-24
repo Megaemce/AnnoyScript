@@ -1,6 +1,7 @@
 ---
 title: Passing custom class object to web workers
 description: A story of 6 hours search for missing class method after using web workers
+date: 2024-03-18
 tags:
   - Annoyances
   - TypeScript

@@ -1,6 +1,7 @@
 ---
 title: The fastest way to work with arrays
 description: How to make 10 000 000 JavaScript push-ups without making CPU wet
+date: 2024-03-20
 tags:
   - Ninja tricks
   - JavaScript
