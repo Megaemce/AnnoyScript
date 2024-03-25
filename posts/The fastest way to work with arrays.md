@@ -154,9 +154,8 @@ for (let i = 0; i < 10000000; i++) {
 {% include "likeButton.njk" %}
 
 [^1]: RIP in peace [Akira Toriyama](https://www.youtube.com/watch?v=7pSmhZFbCy0).
-[^2]: It's worth mentioning that those results were measured with V8 and Chakra (they both covers [81.18%](https://gs.statcounter.com/browser-market-share/desktop/worldwide) of the global browser usage). SpiderMonkey actually makes ninja style slower than laydev (with 7.26% of the market).
+[^2]: It's worth mentioning that those results were measured using V8 browser (which is currently use by [75.5%](https://gs.statcounter.com/browser-market-share) of people). SpiderMonkey actually makes ninja style slower than laydev (with 3.04% of the market).
 
 *[GCC]: GNU Compiler Collection
-*[V8]: JavaScript and WebAssembly engine developed by Google for Chrome browser, but also used by Opera
+*[V8]: JavaScript engine developed by Google for Chrome browser, but also used by Opera, Edge, Brave, Vivaldi and Samsung Internet
 *[SpiderMonkey]: JavaScript engine developed by Mozilla for Firefox
-*[Chakra]: JavaScript engine developed by Microsoft for Edge
