@@ -9,7 +9,7 @@ tags:
 
 Although my grandma liked to spend time feeding me sweets and telling lies, such as the claim that all methods in V8 are equal in performance, I knew that she was secretly hiding the truth of real JavaScript ninja techniques.<sup>🥷🏻</sup>.
 
-Even though the cake was delicious, it's important to know that _a true Saiyan always sprinkles when he tinkles_[^1], and the real ninja always assumes that JavaScript's mysterious engine was written by [triple agents](https://en.wikipedia.org/wiki/Double_agent#Triple_agent) who made their stuff so confusing just as a test of our intellectual superiority and endurance before we can truly enter the Ninja realm.
+Even though the cake was delicious, it's important to know that _a true Saiyan always sprinkles when he tinkles_[^1], and the real ninja always assumes that JavaScript's mysterious engines were written by [triple agents](https://en.wikipedia.org/wiki/Double_agent#Triple_agent) who made their stuff so confusing just as a test of our intellectual superiority and endurance before we can truly enter the Ninja realm.
 
 ## Seting up the task
 
@@ -28,9 +28,6 @@ for (let i; i < 10000000; i++) {
 Looks okay, but it's actually quite slow. And don't even try to tell me that "everything will be fixed by a V8 engine that will magically turn this lazy-ass code into performance beast". We are not in the GCC town; it's the JavaScript ghetto! Things just don't get smoothed out here so easily.
 
 Let's find a better, totally ninja-style, blazingly fast secret technique. But first, we need to reveal the first truth about JavaScript's arrays.
-
-*[GCC]: GNU Compiler Collection
-*[V8]: JavaScript and WebAssembly engine developed by Google for Chrome browser
 
 ## Empty array vs prepared array
 
@@ -157,4 +154,9 @@ for (let i = 0; i < 10000000; i++) {
 {% include "likeButton.njk" %}
 
 [^1]: RIP in peace [Akira Toriyama](https://www.youtube.com/watch?v=7pSmhZFbCy0).
-[^2]: It's worth mentioning that those results are measured with Google's V8 engine. Firefox's JavaScript engine - SpiderMonkey - actually makes ninja style slower than laydev. On the other hand V8 is used by Chrome, Edge and Opera making the [81.18%](https://gs.statcounter.com/browser-market-share/desktop/worldwide) of the global browser usage.
+[^2]: It's worth mentioning that those results were measured with V8 and Chakra (they both covers [81.18%](https://gs.statcounter.com/browser-market-share/desktop/worldwide) of the global browser usage). SpiderMonkey actually makes ninja style slower than laydev (with 7.26% of the market).
+
+*[GCC]: GNU Compiler Collection
+*[V8]: JavaScript and WebAssembly engine developed by Google for Chrome browser, but also used by Opera
+*[SpiderMonkey]: JavaScript engine developed by Mozilla for Firefox
+*[Chakra]: JavaScript engine developed by Microsoft for Edge
