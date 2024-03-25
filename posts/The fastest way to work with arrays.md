@@ -157,4 +157,4 @@ for (let i = 0; i < 10000000; i++) {
 {% include "likeButton.njk" %}
 
 [^1]: RIP in peace [Akira Toriyama](https://www.youtube.com/watch?v=7pSmhZFbCy0).
-[^2]: It's worth mentioning that those results are measured with Chrome's V8 engine. Firefox's JavaScript engine - SpiderMonkey - actually makes ninja style slower than laydev.
+[^2]: It's worth mentioning that those results are measured with Google's V8 engine. Firefox's JavaScript engine - SpiderMonkey - actually makes ninja style slower than laydev. On the other hand V8 is used by Chrome, Edge and Opera making the [81.18%](https://gs.statcounter.com/browser-market-share/desktop/worldwide) of the global browser usage.
