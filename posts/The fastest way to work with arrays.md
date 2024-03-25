@@ -142,7 +142,7 @@ for (let i = 0; i < 10000000; i++) {
 }
 ```
 
-[The results](https://jsbench.me/jqltyhoctl/4) are just awesome - we are **4.2x faster**[^2]! 🎉
+[The results](https://jsbench.me/jqltyhoctl/4) are just awesome - we are **4.2x faster**![^2] 🎉
 
  <div align="center">
 
