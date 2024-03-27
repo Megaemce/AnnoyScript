@@ -45,7 +45,7 @@ for (let i = 0; i < 10000000; i++) {
   workout_slot_ready[i] = "push-up";
 }
 ```
-The rule of thumb is that pushing that many elements to a completely empty array will be very slow. JavaScript generally prefers when the array is already populated, but let's actually test it.
+The rule of thumb is that pushing that many elements to a completely empty array will be very slow. JavaScript generally prefers when the array is already populated[^GC], but let's actually test it.
 
 [The results](https://jsbench.me/jqltyhoctl/1) exceed expectations. Pushing into the `workout_slot_ready` array is more than **23x faster**!
  <div align="center">
@@ -155,8 +155,9 @@ for (let i = 0; i < 10000000; i++) {
 {% include "likeButton.njk" %}
 
 [^1]: RIP in peace [Akira Toriyama](https://www.youtube.com/watch?v=7pSmhZFbCy0).
+[^GC]: If you are keen to learn _why is it like this_ check [this blog](https://yonatankra.com/memory-allocation-and-garbage-collection-in-javascript/).
 [^2]: It's worth mentioning that those results were measured using V8 browser (which is currently covering [75.5%](https://gs.statcounter.com/browser-market-share) of the market). SpiderMonkey actually makes ninja style slower than laydev (with 3.04% of the market).
-[^3]: Actually clean `new Array(10000000)` performs excatly [as efficient](https://jsbench.me/jqltyhoctl/5) as the one with `fill`, so this step could be skipped.
+[^3]: Actually clean `new Array(10000000)` performs excatly [as efficient](https://jsbench.me/jqltyhoctl/5) as the one with `fill`, so this step could be potentially skipped (although this way we might be [creating holes](https://v8.dev/blog/elements-kinds#avoid-creating-holes) in the array).
 
 *[GCC]: GNU Compiler Collection
 *[V8]: JavaScript engine developed by Google for Chrome browser, but also used by Opera, Edge, Brave, Vivaldi and Samsung Internet
