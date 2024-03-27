@@ -81,6 +81,7 @@ for (let i = 0; i < 10000000; i++) {
 
 // using Array's fill method to fill the array
 workout = new Array(10000000).fill("slot", 0, 10000000);
+//      = new Array(10000000) performs exactly the same
 
 // using Array's static from method with an object literal
 workout = Array.from({ length: 10000000 }, () => "slot");
@@ -149,12 +150,13 @@ for (let i = 0; i < 10000000; i++) {
  </div>
 
 
-> Next time you set yourself up for a good ninja push-up training, leave that fancy declarative kimono at home. Dress properly in ninja-imperative _[shinobi shōzoku](https://en.wikipedia.org/wiki/Ninja#Outerwear)_ outfit and remember to warm-up your workout array with some `fill` method and use of good, ol' `for` loop.
+> Next time you set yourself up for a good ninja push-up training, leave that fancy declarative kimono at home. Dress properly in ninja-imperative _[shinobi shōzoku](https://en.wikipedia.org/wiki/Ninja#Outerwear)_ outfit and remember to warm-up your workout array with some `fill` method[^3] and use of good, ol' `for` loop.
 
 {% include "likeButton.njk" %}
 
 [^1]: RIP in peace [Akira Toriyama](https://www.youtube.com/watch?v=7pSmhZFbCy0).
 [^2]: It's worth mentioning that those results were measured using V8 browser (which is currently covering [75.5%](https://gs.statcounter.com/browser-market-share) of the market). SpiderMonkey actually makes ninja style slower than laydev (with 3.04% of the market).
+[^3]: Actually clean `new Array(10000000)` performs excatly [as efficient](https://jsbench.me/jqltyhoctl/5) as the one with `fill`, so this step could be skipped.
 
 *[GCC]: GNU Compiler Collection
 *[V8]: JavaScript engine developed by Google for Chrome browser, but also used by Opera, Edge, Brave, Vivaldi and Samsung Internet
