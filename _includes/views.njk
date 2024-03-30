@@ -5,10 +5,7 @@
   const title = viewsP.dataset.title;
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const response = await fetch(
-      `https://annoy-script-node-serverless.vercel.app/${postTitle}/views`,
-      { method: "GET" }
-    );
+    const response = await fetch(`/${postTitle}/views`, { method: "GET" });
     const data = await response.json();
 
     viewsP.textContent = data.views;
