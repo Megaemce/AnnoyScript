@@ -7,10 +7,10 @@ const PORT = process.env.PORT || 8080;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-app.get("/", (_, res) => res.send("Express on Vercel"));
+app.get("api/", (_, res) => res.send("Express on Vercel"));
 
 // Update the likes count
-app.get("/:postTitle/likes", async (req, res) => {
+app.get("api/:postTitle/likes", async (req, res) => {
   try {
     const { postTitle } = req.params;
     const likes = await kv.HINCRBY(postTitle, "likes", 1);
@@ -23,7 +23,7 @@ app.get("/:postTitle/likes", async (req, res) => {
 });
 
 // Get the post statistics
-app.get("/:postTitle", async (req, res) => {
+app.get("api/:postTitle", async (req, res) => {
   try {
     const { postTitle } = req.params;
     const views = await kv.HINCRBY(postTitle, "views", 1);

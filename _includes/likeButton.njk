@@ -17,13 +17,13 @@
   const postTitle = likeButton.dataset.buttonId;
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const response = await fetch(`/${postTitle}/likes`, { method: "GET" });
+    const response = await fetch(`/api/${postTitle}/likes`, { method: "GET" });
     const data = await response.json();
 
     likesCount.textContent = data.likes;
 
     likeButton.addEventListener("click", async () => {
-      const response = await fetch(`/${postTitle}/likes`, {
+      const response = await fetch(`/api/${postTitle}/likes`, {
         method: "POST",
       });
       const data = await response.json();
