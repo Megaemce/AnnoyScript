@@ -443,15 +443,14 @@ td {
 footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   padding: 2em 0 2em;
   font-family: "Roboto Slab", serif;
   background-color: var(--almostblack);
 }
 
 .footer-text {
-  font-size: 0.8em;
-  font-weight: bold;
+  font-size: 0.75em;
   color: var(--gray);
   margin-bottom: 25px;
   margin-top: 10px;
