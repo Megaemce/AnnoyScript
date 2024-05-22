@@ -125,10 +125,10 @@ I gave it a try, and it works astonishingly well. All the network overheads have
 
 <div align="center"><img src="/img/shan_shui_worker_performance_after.png" alt="Ultra blobing fast increase in pace of the workers" class="subtextImg"/></div>
 
-> If you want to create your worker script on the fly without worrying about network request overhead, simply use Blob. The same applies to custom workers created in React.
+> If you want to create your worker script on the fly without worrying about network request overhead, simply use Blob. The same applies to custom workers created in React - pass the Blob-build URL object as the argument instead of regular path.
 
 ## Further optimalization
-Workers work best when you use them in line with the number of logical processors available to run threads on the user's computer. This number can be obtained by accessing the [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)'s [hardwareConcurrency](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency) property
+Workers work best when you use them in line with the number of logical processors available to run threads on the user's computer. This number can be obtained by accessing the [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)'s [hardwareConcurrency](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency) property.
 ````js
 const concurrency = navigator.hardwareConcurrency
 ````
