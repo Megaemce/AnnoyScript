@@ -1,6 +1,6 @@
 ---
 title: Web workers with React and TypeScript
-description: The Good, the Bad, and the Ugly - conquering the parallelism and overheads of web workers.
+description: The Good, the Bad, and the Ugly - conquering the parallelism and overheads of web workers
 date: 2024-05-22
 tags:
   - Annoyances
