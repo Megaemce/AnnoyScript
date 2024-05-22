@@ -20,7 +20,7 @@ While the reasons behind these bugs are often clear, finding a solution within t
 
 ## The good 🦸‍♂️
 
-In my [Shan Shui](https://github.com/Megaemce/shan_shui), I set out to create millions of SVG paths and swiftly integrate them into the DOM. Each frame I rendered included numerous layers, ranging from 4 to around 45. Many of these layers contained thousands of SVG elements, sometimes even more. Rendering all layers simultaneously would boost rendering process significantly compared to the standard synchronous JavaScript approach.
+While working on my [Shan Shui](https://github.com/Megaemce/shan_shui) project, I set out to create millions of SVG paths and swiftly integrate them into the DOM. Each frame I rendered included numerous layers, ranging from 4 to around 45. Many of these layers contained thousands of SVG elements, sometimes even more. Rendering all layers simultaneously would boost rendering process significantly compared to the standard synchronous JavaScript approach.
 
 When thinking about speed and parallel computation in JavaScript, there is only one star: **Web Workers**<sup>⭐</sup>. Their ability to work independently from the main thread and their true multi-threading capabilities caught my attention immediately.
 
