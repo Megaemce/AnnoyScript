@@ -22,7 +22,7 @@ While the reasons behind these bugs are often clear, finding a solution within t
 
 While working on my [Shan Shui](https://github.com/Megaemce/shan_shui) project, I set out to create millions of SVG paths and swiftly integrate them into the DOM. Each frame I rendered included numerous layers, ranging from 4 to around 45. Many of these layers contained thousands of SVG elements, sometimes even more. Rendering all layers simultaneously would boost rendering process significantly compared to the standard synchronous JavaScript approach.
 
-When thinking about speed and parallel computation in JavaScript, there is only one star: **Web Workers**<sup>⭐</sup>. Their ability to work independently from the main thread and their true multi-threading capabilities caught my attention immediately.
+When thinking about speed and parallel computation in JavaScript, there is only one star: **web workers**<sup>⭐</sup>. Their ability to work independently from the main thread and their true multi-threading capabilities caught my attention immediately.
 
 My first draft code simply followed the MDN tutorial.
 
@@ -128,12 +128,41 @@ I gave it a try, and it works astonishingly well. All the network overheads have
 > If you want to create your worker script on the fly without worrying about network request overhead, simply use Blob. The same applies to custom workers created in React - pass the Blob-build URL object as the argument instead of regular path.
 
 ## Further optimalization
-Workers work best when you use them in line with the number of logical processors available to run threads on the user's computer. This number can be obtained by accessing the [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)'s [hardwareConcurrency](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency) property.
-````js
-const concurrency = navigator.hardwareConcurrency
+Workers work best when you use them in line with the number of logical processors available to run threads on the user's computer. This number can be obtained by accessing the [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)'s [hardwareConcurrency](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency) property. This way, we can partition the data (for example, my array of layers) into chunks of length equal to the logical processors.
+
+````ts
+function chunkLayers(
+    layers: Layer[],
+    size: number = navigator.hardwareConcurrency
+): Array<Array<Layer>> {
+    const result: Array<Array<Layer>> = [];
+
+    for (let i = 0; i < layers.length; i += size) {
+        result.push(layers.slice(i, i + size));
+    }
+
+    return result;
+}
+````
+...and then create pool of workers that will process each piece in the fastest possible way.
+
+````ts
+const chunks = chunkLayers(this.layers);
+
+const chunkPromises = chunks.map((layers) => {
+    const workersPromises = layers.map((layer, index) => {
+        const workerPromise = new Promise<string>((resolve, reject) => {
+            const worker = new Worker(workerBlobURL);
+            // skipped worker's onmessage, onerror, postMessage
+        });
+        return workerPromise;
+    });
+    return Promise.all(workersPromises);
+});
+return await Promise.all(chunkPromises);
 ````
 
-This way, we can partition the data (for example, my array of layers) into pieces of length equal to the `concurrency`, and then create [pool of workers](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency#examples) that will process each piece in the fastest possible way. 
+In my code, this approach doesn't bring any speedup; however, for more complex processes, it might be the go-to option.
 
 {% include "likeButton.njk" %}
 
