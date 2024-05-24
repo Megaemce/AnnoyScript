@@ -161,7 +161,7 @@ const framePromises = chunks.map((layers) => {
 return await Promise.all(framePromises);
 ````
 
-In my code, this approach doesn't bring any speedup as the data is not _that_ complex, and I need to wait for all the promises to be resolved. In the tested example, only around 50k elements were rendered, which brings the total time per element to around 0.004ms. Further improvement could be limited by the [overhead associated with using Promises](https://madelinemiller.dev/blog/javascript-promise-overhead/). However, for more complex processes where data chunks are not related to each other, it might be the go-to option.
+In my code, this approach doesn't bring any speedup as the data is not _that_ complex, and I need to wait for all the promises to be resolved. In the tested example, only around 50k elements were rendered, which brings the total time per element to around 4μs. Further improvement could be limited by the [overhead associated with using Promises](https://madelinemiller.dev/blog/javascript-promise-overhead/). However, for more complex processes where data chunks are not related to each other, it might be the go-to option.
 
 {% include "likeButton.njk" %}
 
