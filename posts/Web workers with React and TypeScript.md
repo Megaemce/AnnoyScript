@@ -16,7 +16,7 @@ tags:
 
 One thing that particularly bothers me when working with shiny out-of-the-box products like React and TypeScript is their hidden overheads. Everything generally functions smoothly, but when you delve into less common use cases, you're likely to encounter some nasty bugs<sup>🐛</sup>. 
 
-While the reasons behind these bugs are often clear, finding a solution within the framework's constraints can be quite challenging. That's what happend to me while I was working again with [Web Workers](docs/Web/API/Web_Workers_API/Using_web_workers).
+While the reasons behind these bugs are often clear, finding a solution within the framework's constraints can be quite challenging. That's what happend to me while I was working again with [web workers](docs/Web/API/Web_Workers_API/Using_web_workers).
 
 ## The good 🦸‍♂️
 
@@ -28,8 +28,8 @@ My first draft code simply followed the MDN tutorial.
 
 ````ts
 this.someArray.forEach((element) => { 
-			const worker = new Worker("worker.ts"); // worker.ts is within same folder, da!
-      // ...
+	const worker = new Worker("worker.ts"); // worker.ts is within same folder, da!
+    // ...
 ````
 
 However, this does not work in a React project because the bundler does not understand that this specific string should be replaced during compilation with the new path to the bundled JavaScript file.
@@ -61,7 +61,7 @@ Script at 'file:///.../worker.js' cannot be accessed from origin 'http://localho
 ````
 This issue is caused by the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which tries to restrict how a document or script loaded by one origin can interact with a resource from another origin. In this case, JavaScript thinks that the `worker.js` file lies in a different place than `localhost`[^1].
 
-> It's still a mystery to me why it works with a one-liner but not when the arguments are split into separate constants. My only assumption is that React's bundler (WebPack) attempts to catch all instances of Worker's constructors during compilation and patch their URLs on the fly.
+> React's bundler (webpack) handles a direct URL argument without issues but returns an error when the URL argument is created beforehand. My assumption is that webpack attempts to catch all instances of Worker constructors during compilation and patch their URLs on the fly. However, the real reason remains a mystery 🤷.
 
 We could just skip this way of passing the URL object and do it directly. However, if you ever consider (just like I did) creating a custom worker class, you might have a bad day ahead of you.
 
@@ -125,7 +125,7 @@ I gave it a try, and it works astonishingly well. All the network overheads have
 
 <div align="center"><img src="/img/shan_shui_worker_performance_after.png" alt="Ultra blobing fast increase in pace of the workers" class="subtextImg"/></div>
 
-> If you want to create your worker script on the fly without worrying about network request overhead, simply use Blob. The same applies to custom workers created in React - pass the Blob-build URL object as the argument instead of regular path.
+> When creating a worker without worrying about network request overhead, simply use a Blob and create it on the fly. The same applies to custom workers created in React - pass the Blob-generated URL object as the argument instead of a regular path.
 
 ## Further optimalization
 Workers work best when you use them in line with the number of logical processors available to run threads on the user's computer. This number can be obtained by accessing the [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)'s [hardwareConcurrency](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency) property. This way, we can partition the data (for example, my array of layers) into chunks of length equal to the logical processors.
@@ -150,7 +150,7 @@ function chunkLayers(
 const chunks = chunkLayers(this.layers);
 
 const framePromises = chunks.map((layers) => {
-    const chunkPromises = layers.map((layer, index) => {
+    const chunkPromises = layers.map((layer) => {
         return new Promise<string>((resolve, reject) => {
             const worker = new Worker(workerBlobURL);
             // skipped worker's onmessage, onerror, postMessage
