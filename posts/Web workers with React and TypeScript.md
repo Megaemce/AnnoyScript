@@ -5,6 +5,7 @@ date: 2024-05-22
 tags:
   - Annoyances
   - TypeScript
+  - Ninja tricks
 ---
 <div align="center">
 
@@ -14,7 +15,7 @@ tags:
 
 </div>
 
-One thing that particularly bothers me when working with shiny out-of-the-box products like React and TypeScript is their hidden overheads. Everything generally functions smoothly, but when you delve into less common use cases, you're likely to encounter some nasty bugs<sup>🐛</sup>. 
+One thing that particularly bothers me when working with libraries/frameworks like React is their hidden overheads. Everything generally functions smoothly, but when you delve into less common use cases, you're likely to encounter some nasty bugs<sup>🐛</sup>. 
 
 While the reasons behind these bugs are often clear, finding a solution within the framework's constraints can be quite challenging. That's what happend to me while I was working again with [web workers](docs/Web/API/Web_Workers_API/Using_web_workers).
 
