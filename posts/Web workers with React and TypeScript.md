@@ -55,13 +55,10 @@ const worker = new Worker(path); // this is just the same code, yeah? Well...not
 - `worker` creates a new Worker object using a string from `path`'s URL object.
 
 Everything seems straightforward, but there's a <sub>💥</sub>ZONK<sup>💥</sup> - it's not working!
-````javascript
-Failed to construct 'Worker': 
-Script at 'file:///.../worker.js' cannot be accessed from origin 'http://localhost:3000'.
-````
-This issue is caused by the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which tries to restrict how a document or script loaded by one origin can interact with a resource from another origin. In this case, JavaScript thinks that the `worker.js` file lies in a different place than `localhost`[^1].
 
-> React's bundler (webpack) handles a direct URL argument without issues but returns an error when the URL argument is created beforehand. My assumption is that webpack attempts to catch all instances of Worker constructors during compilation and patch their URLs on the fly. However, the real reason remains a mystery 🤷.
+The code fails with error: _Refused to execute script from '<URL\>' because its MIME type ('video/mp2t') is not executable_. So now, my worker's TypeScript code appears to be treated as a video.
+
+> React's bundler (webpack) handles a direct URL argument without issues but returns an error when the URL argument is created beforehand. My assumption is that webpack attempts to catch all instances of Worker constructors during compilation and patch their URLs on the fly. However, the real reason remains a mystery 🤷. I raised [an issue](https://github.com/facebook/react/issues/29589) with the React team regarding that matter.
 
 We could just skip this way of passing the URL object and do it directly. However, if you ever consider (just like I did) creating a custom worker class, you might have a bad day ahead of you.
 
@@ -80,7 +77,7 @@ class CustomWorker extends Worker {
 ````
 The `new CustomWorker(someURL)` constructor will fail with the same issue as before.
 
-The simplest solution is to use the one-liner for your project, and if you really need to pass the URL as a variable, you can use a trick that I learned while trying to fix another Worker's issue.
+The simplest solution is to use a one-liner for your project or a workaround where the worker's code is written in JavaScript (which does not cause a MIME type issue). If you really need to pass the URL as a variable, or build worker with TypeScript, you can use a trick that I learned while trying to fix another worker issue.
 
 ## The ugly 🥸
 While happy about my nitro-speed worker approach, I published the project on Vercel. Then, the nightmare of every engineer occurred — it works locally (almost) perfectly, but stutters in production. A quick comparison between the two versions shows a major flaw: the workers are now working sequentially! Somehow, the parallelism disappears[^2]. What took 243ms on localhost now takes 1.32s in production[^3].
@@ -166,6 +163,5 @@ In my code, this approach doesn't bring any speedup as the data is not _that_ co
 {% include "likeButton.njk" %}
 
 [^0]: Making it work in TypeScript and the WebPack bundler (without React) is [another level of flexing](https://www.jameslmilner.com/posts/workers-with-webpack-and-ts/)
-[^1]: Maybe this would work in production, but I didn't test it, as I like when stuff works **everywhere**
 [^2]: Only when publishing this post did I notice that the local version was suffering from the same issue, but to a lesser extent, as there is much less network overhead on localhost
 [^3]: I tested all the performance benchmarks on the same picture
