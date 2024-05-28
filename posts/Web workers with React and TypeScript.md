@@ -59,7 +59,7 @@ Everything seems straightforward, but there's a <sub>💥</sub>ZONK<sup>💥</su
 
 The code fails with error: _Refused to execute script from '<URL\>' because its MIME type ('video/mp2t') is not executable_. So now, my worker's TypeScript code appears to be treated as a video.
 
-> React's bundler (webpack) handles a direct URL argument without issues but returns an error when the URL argument is created beforehand. My assumption is that webpack attempts to catch all instances of Worker constructors during compilation and patch their URLs on the fly. However, the real reason remains a mystery 🤷. I raised [an issue](https://github.com/facebook/react/issues/29589) with the React team regarding that matter.
+> According to webpack's [official documentation](https://webpack.js.org/guides/web-workers/): _"(...) while the Worker API suggests that the Worker constructor would accept a string representing the URL of the script, in webpack 5 you can only use a URL instead. Using a variable in the Worker constructor is not supported by webpack"_. This limitation exists because webpack needs to analyze the URL statically during the build process. This requirement ensures compatibility with native ECMAScript modules and scenarios where a bundler is not used.
 
 We could just skip this way of passing the URL object and do it directly. However, if you ever consider (just like I did) creating a custom worker class, you might have a bad day ahead of you.
 
