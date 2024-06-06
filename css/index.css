@@ -20,14 +20,24 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll; /* Force the scrollbar to always be visible */
+}
+
 html,
 body {
   padding: 0;
-  margin: auto;
-  max-width: 50em;
+  margin: 0;
+  width: 100%;
   font-family: -apple-system, system-ui, sans-serif;
   color: var(--white);
   background-color: var(--almostblack);
+}
+
+body {
+  max-width: 50em; /* Added to set the maximum width of the body */
+  margin: 0 auto; /* Added to center the body */
+  padding: 0 10px; /* Added padding to prevent content from touching edges */
 }
 
 h1 {
