@@ -52,6 +52,10 @@ header {
   font-family: "Roboto Slab", serif;
 }
 
+p {
+  text-wrap: pretty;
+}
+
 p:last-child {
   margin-bottom: 0;
 }
@@ -74,7 +78,7 @@ a[href]:hover {
 main {
   padding: 1rem;
 }
-main :first-child {
+main > h1:first-child {
   margin-top: 0;
 }
 header {
@@ -134,6 +138,14 @@ header .home :link {
 
 .hero > h2 {
   margin: 0;
+}
+
+sup {
+  vertical-align: top;
+  line-height: 1;
+  & a {
+    text-decoration: none;
+  }
 }
 
 pre,
