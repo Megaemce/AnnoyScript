@@ -29,7 +29,7 @@ My first draft code simply followed the MDN tutorial.
 
 ````ts
 this.someArray.forEach((element) => { 
-	const worker = new Worker("worker.ts"); // worker.ts is within same folder, da!
+    const worker = new Worker("worker.ts"); // worker.ts is within same folder, da!
     // ...
 ````
 
@@ -67,12 +67,6 @@ We could just skip this way of passing the URL object and do it directly. Howeve
 
 ````ts/8
 class CustomWorker extends Worker {
-    currentTask: {
-        message: any;
-        resolve: (value: string) => void;
-        reject: (reason?: any) => void;
-    } | null = null;
-
     constructor(scriptURL: string | URL, options?: WorkerOptions) {
         super(scriptURL, options); // React intensifies breathing
     }
@@ -97,15 +91,15 @@ After a few more readings, I found [this solution](https://dev.to/martinsolumide
 // worker.ts file //
 const workerFunction = function () {
     onmessage = function (e: MessageEvent): void {
-	    const element = e.data.element;
-	    const result = element + "!" // just as an example
+        const element = e.data.element;
+        const result = element + "!" // Just as an example
 
-	  postMessage({ result: result });
-  };
+        postMessage({ result: result });
+    };
 }
 // Stringify the whole function
 const code = workerFunction.toString() 
-// Get everything between {} brackets
+// Get everything between first {} brackets
 const mainCode = code.substring(code.indexOf("{") + 1,code.lastIndexOf("}")); 
 // Create a Blob containing onmessage function
 const blob = new Blob([mainCode], { type: "text/javascript" }); 
@@ -118,8 +112,8 @@ export default workerBlobURL;
 import workerBlobURL from "worker.ts";
 
 this.someArray.forEach((element) => { 
-			const worker = new Worker(workerBlobURL);
-      // ...
+    const worker = new Worker(workerBlobURL);
+    // ...
 ````
 I gave it a try, and it works astonishingly well. All the network overheads have vanished, and now the rendering of all the layers takes just 163ms!
 
