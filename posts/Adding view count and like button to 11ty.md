@@ -1,5 +1,5 @@
 ---
-title: Adding a view count and like button to 11ty
+title: Adding view count and like button to 11ty
 description: How to mix static and dynamic content so you can spend more time in a void
 date: 2024-06-21
 tags:
