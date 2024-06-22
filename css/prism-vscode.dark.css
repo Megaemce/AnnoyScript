@@ -41,6 +41,14 @@ pre::before {
   );
 }
 
+pre.mermaid {
+  background-color: transparent;
+  padding: 0 2em;
+}
+pre.mermaid::before {
+  display: none;
+}
+
 code {
   word-wrap: break-word;
   overflow-wrap: break-word;

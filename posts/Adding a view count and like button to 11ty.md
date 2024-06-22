@@ -1,6 +1,6 @@
 ---
-title: Adding views and likes count to 11ty
-description: How to mix static and dynamic content so you can think more about void
+title: Adding a view count and like button to 11ty
+description: How to mix static and dynamic content so you can spend more time in a void
 date: 2024-06-21
 tags:
   - JavaScript
@@ -9,9 +9,9 @@ tags:
   - Serverless
 ---
 
-I like 11ty for its simplicity. Once you understand that its documentation is shit and you are left alone in this developer life to struggle in the ultimate quest to achieve enlightenment, you might even say that it's a good blogging framework that can teach you important lessons about [craving](https://en.wikipedia.org/wiki/Ta%E1%B9%87h%C4%81) and [duḥkha](https://en.wikipedia.org/wiki/Du%E1%B8%A5kha).
+I like 11ty for its simplicity. Once you understand that its documentation is shit[^4] and you are left alone in this developer life to struggle in the ultimate quest to achieve enlightenment, you might even say that it's a good blogging framework that can teach you important lessons about [craving](https://en.wikipedia.org/wiki/Ta%E1%B9%87h%C4%81) and [duḥkha](https://en.wikipedia.org/wiki/Du%E1%B8%A5kha).
 
-A few months ago, I was eager to add some small features to my blog: a views count and a like button that viewers (yeah, you!) can click to give me some temporary pleasure before I slide back into emptiness.
+A few months ago, I was eager to add some small features to my blog: a views count and a like button that viewers can click to give me some temporary pleasure before I slide back into fullness of emptiness.
 
 So I started my quest with simple idea: add [express](https://expressjs.com/) as the backend, create some APIs, write data to a JSON file, and voila!<sup>🎯</sup>
 
@@ -85,7 +85,7 @@ But we can override that by setting different options in the [Project Build Sett
 }
 ```
 
-So all we have to do now is create and populate `server.js` in our root folder with some [basic API endpoints](https://vercel.com/guides/using-express-with-vercel) and a place to store the data. Fortunately, Vercel provides serverless Redis storage: [Vercel KV](https://vercel.com/docs/storage/vercel-kv)[^1], which we can easily utilize for that purpose.
+So all we have to do now is create and populate `server.js` in our root folder with some [basic API endpoints](https://vercel.com/guides/using-express-with-vercel) and a place to store the data. Fortunately, Vercel provides serverless Redis storage: [Vercel KV](https://vercel.com/docs/storage/vercel-kv)[^1], which we can [easily utilize](https://vercel.com/docs/storage/vercel-kv/quickstart) for that purpose.
 
 Let's update the chart with more data so we know where we are right now
 
@@ -98,13 +98,11 @@ flowchart LR
     F([express])
     end
     subgraph Vercel [Vercel KV]
-    subgraph Hash
     subgraph Key [Key]
     G(postTitle)
     end
     subgraph Value [Value]
     H[likes] & I[views]
-    end
     end
     end
     Key --- Value
@@ -175,7 +173,7 @@ app.post("/api/:postTitle/likes", async (req, res) => {
     }
 });
 
-// Get the view and increment them. Every request is a new view
+// Get the views and increment them. Every request is a new view
 app.get("/api/:postTitle/views", async (req, res) => {
     try {
         const { postTitle } = req.params;
@@ -244,11 +242,11 @@ and `LikeButton.njk` with the same issue like before:
 </script>
 ```
 
-Working demo can be find [here](https://dynamic-11th.vercel.app/) and the code is availible on [GitHub](https://github.com/Megaemce/dynamic-11th).
-Now you can smash that like button below!
+This code can be accessed like so **&lbrace;% include "likeButton.njk" %&rbrace;** on every page. You can check [working demo](https://dynamic-11th.vercel.app) and the code on [GitHub](https://github.com/Megaemce/dynamic-11th). Now smash that like button below!
 
 {% include "likeButton.njk" %}
 
 [^0]: ...then mixing it with strike pads off a matchbook, muriatric acid and hydrogen peroxide, and then, maybe somehow... [crystal meth](https://www.youtube.com/watch?v=gnPnEvy4e70) 🙅
 [^1]: KV stands for `key` and `value` so you can interact with this pseudo-database like a normal object, with limitations due to its [very daft syntax](https://redis.io/docs/latest/develop/connect/cli/). This was further restricted by Vercel itself to [only few keywords](beginner-guide-to-vercel-kv#examples-of-supported-redis-commands). For those who dislike this solution, there is also [Vercel Postgres](https://github.com/vercel/examples/blob/main/solutions/express/api/index.ts)
-[^2]: I'm sure there are better ways to handle this in njk files without resorting to ugly `<script>` tags, but I've had enough of that for no.
+[^2]: I'm sure there are better ways to handle this in njk files without resorting to ugly `<script>` tags, but I've had enough of that for now.
+[^4]: I love creating and fixing documentation myself, and I'm really proud to call myself a documentation hero. However, 11ty's documentation is beyond anyone's ability to improve; it's simply bad. The only way I can see it being improved is by starting from scratch, and I just wanted to create a quick blog, not save the world. For anyone else considering 11ty, I suggest Next.js. Implementing features like a view counter or a like button is a breeze there, and you can even find ready-made projects with these features included.
