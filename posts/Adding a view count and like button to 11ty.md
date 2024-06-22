@@ -33,7 +33,7 @@ flowchart LR
 
 The issue with this approach is that I don't have my own server, just a free Vercel hobby account. Vercel [doesn't allow writing to a file](https://vercel.com/guides/how-can-i-use-files-in-serverless-functions) and directs you towards a more [serverless approach](https://vercel.com/docs/functions), encouraging you to learn new things instead of staying comfortable with your 10-year-old mindset.
 
-## Cooking the ~~meth~~ solution
+## Cooking the solution
 
 Mixing 11ty with Express and Vercel serverless functions is like mixing cough syrup with iodine and lye[^0]. It takes time, but you might end up with something nice. Or, you could get frustrated and burn your house down. It took me about two working days to get it sorted properly, but the house is okay.
 
