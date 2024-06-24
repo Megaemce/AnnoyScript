@@ -113,7 +113,7 @@ flowchart LR
 
 ```
 
-So now we just need to access the database and get or set the key. Let's assume that we already have `postTitle`, so our pseudocode can be simplified. To increase the value we use [HINCRBY](https://redis.io/docs/latest/commands/hincrby/); to retrieve it, we use [HGET](https://redis.io/docs/latest/commands/hget/). If the value does not exist, we use [HSET](https://redis.io/docs/latest/commands/hset/).
+So now we just need to access the database and get or set the key. Let's assume that we already have `postTitle`, so our pseudocode can be simplified. To increase the value we use [HINCRBY](https://redis.io/docs/latest/commands/hincrby/); to retrieve it, we use [HGET](https://redis.io/docs/latest/commands/hget/).
 ```js
 const { kv } = require("@vercel/kv");
 // Increase view
@@ -121,9 +121,8 @@ const { kv } = require("@vercel/kv");
 // If value does not exist the value is set to 0 before the operation is performed
 const views = await kv.hincrby(postTitle, "views", 1);
 
-// Get likes. If the value does not exist set it to zero and return that value
-const likes =
-  (await kv.hget(postTitle, "likes")) || (await kv.hset(postTitle, "likes", 0));
+// Get likes 
+const likes = (await kv.hget(postTitle, "likes")) || 0;
 ```
 
 > Note that even though the official Redis documentation states that these functions can be written in uppercase, the code within `server.js` is case-sensitive!
