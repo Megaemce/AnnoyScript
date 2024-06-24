@@ -11,7 +11,7 @@ tags:
 
 I like 11ty for its simplicity. Once you understand that its documentation is shit[^4] and you are left alone in this developer life to struggle in the ultimate quest to achieve enlightenment, you might even say that it's a good blogging framework that can teach you important lessons about [craving](https://en.wikipedia.org/wiki/Ta%E1%B9%87h%C4%81) and [duḥkha](https://en.wikipedia.org/wiki/Du%E1%B8%A5kha).
 
-A few months ago, I was eager to add some small features to my blog: a views count and a like button that viewers can click to give me some temporary pleasure before I slide back into fullness of emptiness.
+A few months ago, I was eager to add some small features to my blog: a view count and a like button that viewers can click to give me some temporary pleasure before I slide back into fullness of emptiness.
 
 So I started my quest with simple idea: add [express](https://expressjs.com/) as the backend, create some APIs, write data to a JSON file, and voila!<sup>🎯</sup>
 
