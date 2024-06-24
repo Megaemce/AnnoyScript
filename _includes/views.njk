@@ -5,12 +5,22 @@
   const title = viewsP.dataset.title;
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const response = await fetch(
-      `https://annoy-script-node-serverless.vercel.app/${postTitle}/views`,
-      { method: "GET" }
-    );
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        `https://annoy-script-node-serverless.vercel.app/${postTitle}/views`,
+        { method: "GET" }
+      );
 
-    viewsP.textContent = data.views;
+      if (!response.ok) {
+        throw new Error(`Failed to get views. ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      viewsP.textContent = data.views;
+    } catch (error) {
+      console.error(error.message);
+      viewsP.textContent = "😵";
+    }
   });
 </script>
