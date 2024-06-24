@@ -149,9 +149,7 @@ app.get("/api/", (req, res) => res.json({ message: "Hello from Express!" }));
 app.get("/api/:postTitle/likes", async (req, res) => {
     try {
         const { postTitle } = req.params;
-        const likes =
-            (await kv.hget(postTitle, "likes")) ||
-            (await kv.hset(postTitle, "likes", 0));
+        const likes = (await kv.hget(postTitle, "likes")) || 0;
 
         res.json({ likes: likes });
     } catch (err) {
