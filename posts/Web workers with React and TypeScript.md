@@ -125,14 +125,12 @@ I gave it a try, and it works astonishingly well. All the network overheads have
 Workers work best when you use them in line with the number of logical processors available to run threads on the user's computer. This number can be obtained by accessing the [Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)'s [hardwareConcurrency](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency) property. This way, we can partition the data (for example, my array of layers) into chunks of length equal to the logical processors.
 
 ````ts
-function chunkLayers(
-    layers: Layer[],
-    size: number = navigator.hardwareConcurrency
-): Array<Array<Layer>> {
-    const result: Array<Array<Layer>> = [];
+function chunkLayers(layers: Layer[], size?: number): Array<Array<Layer>> {
+    const chunkSize = size || navigator.hardwareConcurrency;
+    const result = [];
 
-    for (let i = 0; i < layers.length; i += size) {
-        result.push(layers.slice(i, i + size));
+    for (let i = 0; i < layers.length; i += chunkSize) {
+        result.push(layers.slice(i, i + chunkSize));
     }
 
     return result;
