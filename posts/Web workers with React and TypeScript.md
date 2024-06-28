@@ -97,13 +97,11 @@ const workerFunction = function () {
         postMessage({ result: result });
     };
 }
-// Stringify the whole function
+// Stringify the whole function, getting everything between first {} brackets,
+// creating a blog containing onmessage function and URL from that Blob object
 const code = workerFunction.toString() 
-// Get everything between first {} brackets
-const mainCode = code.substring(code.indexOf("{") + 1,code.lastIndexOf("}")); 
-// Create a Blob containing onmessage function
-const blob = new Blob([mainCode], { type: "text/javascript" }); 
-// Create URL to Blob object
+const funBody = code.substring(code.indexOf("{") + 1,code.lastIndexOf("}")); 
+const blob = new Blob([funBody], { type: "text/javascript" }); 
 const workerBlobURL = URL.createObjectURL(blob); 
 
 export default workerBlobURL;
