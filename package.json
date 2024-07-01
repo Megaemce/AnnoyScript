@@ -1,6 +1,6 @@
 {
   "name": "annoyscript",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Blog about the issues, annoyances, and hard-to-grasp concepts that I encountered while working with JavaScript and TypeScript",
   "scripts": {
     "build": "eleventy",
@@ -13,12 +13,13 @@
     "@11ty/eleventy-navigation": "^0.3.3",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
+    "@kevingimbel/eleventy-plugin-mermaid": "^2.2.1",
     "eleventy-plugin-time-to-read": "^1.3.0",
     "luxon": "^3.0.1",
     "markdown-it": "^13.0.1",
     "markdown-it-abbr": "^2.0.0",
     "markdown-it-anchor": "^8.6.4",
     "markdown-it-footnote": "^4.0.0",
-    "@kevingimbel/eleventy-plugin-mermaid": "^2.2.1"
+    "markdown-it-github-alerts": "^0.3.0"
   }
 }

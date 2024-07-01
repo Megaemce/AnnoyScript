@@ -149,7 +149,7 @@ for (let i = 0; i < 10000000; i++) {
  | 🏆 17 ops/s | 4 ops/s |
  </div>
 
-
+> [!TIP]
 > Next time you set yourself up for a good ninja push-up training, leave that fancy declarative kimono at home. Dress properly in ninja-imperative _[shinobi shōzoku](https://en.wikipedia.org/wiki/Ninja#Outerwear)_ outfit and remember to warm-up your workout array with some `fill` method[^3] and use of good, ol' `for` loop.
 
 {% include "likeButton.njk" %}

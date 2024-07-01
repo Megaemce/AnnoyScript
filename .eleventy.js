@@ -10,6 +10,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItAbbr = require("markdown-it-abbr");
+const markdownItGithubAlerts = require("markdown-it-github-alerts");
 
 module.exports = function (eleventyConfig) {
   // Add plugins
@@ -96,7 +97,8 @@ module.exports = function (eleventyConfig) {
       slugify: eleventyConfig.getFilter("slug"),
     })
     .use(markdownItFootnote)
-    .use(markdownItAbbr);
+    .use(markdownItAbbr)
+    .use(markdownItGithubAlerts);
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 

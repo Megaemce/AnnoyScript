@@ -125,6 +125,7 @@ const views = await kv.hincrby(postTitle, "views", 1);
 const likes = (await kv.hget(postTitle, "likes")) || 0;
 ```
 
+> [!IMPORTANT] 
 > Note that even though the official Redis documentation states that these functions can be written in uppercase, the code within `server.js` is case-sensitive!
 >
 > Also, observe the brackets around `@vercel/kv` import. I wasted 3 hours looking for the reason why KV is not working properly.

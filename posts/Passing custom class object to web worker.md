@@ -67,6 +67,7 @@ After many hours of debugging, I discovered [this GitHub question](https://stack
 
 The issue lay within the web worker messaging system.
 
+> [!CAUTION]
 > If your custom class contains something more then just properties then _buckle your seatbelt Dorothy, 'cause they are going bye-bye!_[^2]. The structured cloning algorithm used by web worker message system will ignore all of yours:
 >
 > - property descriptors

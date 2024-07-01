@@ -59,6 +59,7 @@ Everything seems straightforward, but there's a <sub>💥</sub>ZONK<sup>💥</su
 
 The code fails with error: _Refused to execute script from '<URL\>' because its MIME type ('video/mp2t') is not executable_. So now, my worker's TypeScript code appears to be treated as a video.
 
+> [!IMPORTANT]
 > According to [webpack's doc](https://webpack.js.org/guides/web-workers/): _"(...) while the Worker API suggests that the Worker constructor would accept a string representing the URL of the script, in webpack 5 you can only use a URL instead. Using a variable in the Worker constructor is not supported by webpack"_. 
 >
 > This limitation exists because webpack needs to analyze the URL statically during the build process. This requirement ensures compatibility with native ECMAScript modules and scenarios where a bundler is not used.
@@ -117,6 +118,7 @@ I gave it a try, and it works astonishingly well. All the network overheads have
 
 <div align="center"><img src="/img/shan_shui_worker_performance_after.png" alt="Ultra blobing fast increase in pace of the workers" class="subtextImg"/></div>
 
+> [!TIP]
 > When creating a worker without worrying about network request overhead, simply use a Blob and create it on the fly. The same applies to custom workers created in React - pass the Blob-generated URL object as the argument instead of a regular path.
 >
 > The only downside of using Blobs is that complex objects with import statements will recreate the issue with multiple network requests. What's worse is that they will all link to a **copy** of the imported scripts. Therefore, when there is a need for information flow between the created elements, this solution will fail badly, creating more issues than it solves.
